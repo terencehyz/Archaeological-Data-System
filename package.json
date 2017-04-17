@@ -1,0 +1,26 @@
+{
+  "name": "archaeologiacl-data-system",
+  "version": "1.0.0",
+  "description": "内蒙古田野考古数据库系统（网站端）",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terencehyz/Archaeological-Data-System.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "terencehyz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terencehyz/Archaeological-Data-System/issues"
+  },
+  "homepage": "https://github.com/terencehyz/Archaeological-Data-System#readme"
+}
