@@ -16,7 +16,7 @@ new Vue({
         getGoodsList: function () {
             var _this=this;
             this.$http.get().then(function (res) {
-                
+
             });
         }
     }
