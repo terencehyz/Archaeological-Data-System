@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cmn-Hans">
 <head>
     <meta charset="UTF-8">
     <title>内蒙古田野考古数据系统（网页版）</title>
@@ -34,30 +34,38 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
                         <div class="input-group">
-                            <input type="text" class="form-control input-lg" placeholder="在这里输入关键字"><span class="input-group-addon btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;搜索&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type="text" class="form-control input-lg" placeholder="在这里输入关键字" v-model="goodsValue">
+                            <span class="input-group-addon btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;搜索&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 animated fadeInUp">
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 animated fadeInUp" v-show="showResult">
+
                 <div class="row">
                     <div class="page-header">
                         <h3>搜索结果</h3>
                     </div>
                 </div>
+
+                <div class="alert alert-warning" role="alert" v-show="noList">没有找到相应的结果，换个关键字试试～</div>
+
                 <div v-for="item in goodsList">
                     <div class="media">
                         <div class="media-left">
                             <a href="#">
-                                <img class="media-object" src="https://ss0.baidu.com/73x1bjeh1BF3odCf/it/u=3950791117,3761959576&fm=85&s=4EA63462298962C250C818CE0100C0A0" alt="...">
+                                <img class="media-object" v-bind:src="item." alt="...">
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">Media heading</h4>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum facilis, porro eos sint molestiae. Alias, expedita, unde. Cupiditate quod expedita est, libero alias. Velit perferendis consequuntur beatae mollitia cupiditate, expedita!
+                            <a href="#">
+                                <h4 class="media-heading">{{item.}}</h4>
+                            </a>
+                            {{item.}}
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

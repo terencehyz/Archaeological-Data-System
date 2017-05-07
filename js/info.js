@@ -13,6 +13,9 @@ new Vue({
 
     },
     methods:{
-
+    signOut: function () {
+        localStorage.clear();
+        //路由跳转到登陆页面
+    }
     }
 });

@@ -1,10 +1,16 @@
 /**
  * Created by terencehyz on 2017/5/6.
  */
+var serverIp="http://119.29.37.225/Pets-Love/back-end/user/";
 var vm = new Vue({
     el:"#app",
     data:{
-        title:""
+        userInfo:{
+            id:"",
+            pwd:""
+        },
+        loginMessage:"",
+        temp:{}
     },
     filters:{
 
@@ -12,12 +18,27 @@ var vm = new Vue({
     mounted: function () {
 
     },
+    watch:{
+        userInfo:function () {
+            this.loginMessage="";
+        }
+    },
     methods:{
         login: function () {
             var _this = this;
-            this.$http.get().then(function (res) {
+            var url = serverIp+"login.php?email="+_this.userInfo.id+"&password="+hex_md5(_this.userInfo.pwd)+"&callback=JSON_CALLBACK";
+            this.$http.get(url).then(function (res) {
+                _this.temp=res.body;
                 /* res.body是取到的真正PHP返回的内容 */
-               _this.title=res.body.result;
+                if(res.body.judge){
+                    _this.loginMessage="";
+                    localStorage.setItem("lUserInfo",res.body);
+                    localStorage.setItem("lLoginStatus",true);
+                    //路由跳转到query页面
+                }
+                else{
+                    _this.loginMessage="用户名或密码错误！请重试";
+                }
             });
         }
     }
