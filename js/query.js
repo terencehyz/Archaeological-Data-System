@@ -1,15 +1,14 @@
 /**
  * Created by terencehyz on 2017/5/6.
  */
-var serverIp="";
+var serverIp="http://47.93.31.225/project/";
 new Vue({
     el:"#queryVue",
     data:{
-        goodsList:[],
-        goodsValue:"",
-        noList:false,
-        showResult:false
-    },
+        showLogin:localStorage.getItem("lLoginStatus"),
+        showForm8:false,
+        showItem:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+},
     filters:{
 
     },
@@ -18,30 +17,22 @@ new Vue({
         {
             //路由跳转到登陆页面
         }
+
     },
     watch:{
-        goodsValue:function () {
-            this.showResult=false;
-            this.noList=false;
-        }
+
     },
     methods:{
-        getGoodsList: function () {
-            var _this=this;
-            var url = serverIp + "" + _this.goodsValue + "&callback=JSON_CALLBACK";
-            this.$http.get(url).then(function (res) {
-                _this.showResult=true;
-                if(res.body){
-                    _this.goodsList=res.body;
-                }
-                else{
-                    _this.noList=true;
-                }
-            });
+        selectForm:function () {
+            this.showItem=[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+            this.getData8();
         },
         signOut: function () {
             localStorage.clear();
             //路由跳转到登陆页面
+        },
+        getData8:function () {
+            this.showForm8=true;
         }
     }
 });
