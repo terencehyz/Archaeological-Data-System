@@ -12,7 +12,7 @@
     <script src="../js/query.js"></script>
 </head>
 <body>
-    <div id="queryVue">
+    <div id="app2">
         <div class="head">
             <a href="#">
                 <div class="logo fl"></div>
@@ -22,7 +22,7 @@
 
         <div class="operation_user clearfix">
             <div class="link fr">
-                <span>欢迎使用此系统</span>
+                <span>{{userId}}欢迎使用此系统</span>
                 <a href="#" class="icon icon_i" v-show="!showLogin">登陆</a>
                 <span></span>
                 <a href="#" class="icon icon_e" v-show="showLogin" v-on:click="signOut()">退出</a>
@@ -280,29 +280,29 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td v-show="showItem[0]"></td>
-                                        <td v-show="showItem[1]"></td>
-                                        <td v-show="showItem[2]"></td>
-                                        <td v-show="showItem[3]"></td>
-                                        <td v-show="showItem[4]"></td>
-                                        <td v-show="showItem[5]"></td>
-                                        <td v-show="showItem[6]"></td>
-                                        <td v-show="showItem[7]"></td>
-                                        <td v-show="showItem[8]"></td>
-                                        <td v-show="showItem[9]"></td>
-                                        <td v-show="showItem[10]"></td>
-                                        <td v-show="showItem[11]"></td>
+                                    <tr v-for="item in itemIn8">
+                                        <td v-show="showItem[0]">{{item.year}}</td>
+                                        <td v-show="showItem[1]">{{item.work}}</td>
+                                        <td v-show="showItem[2]">{{item.deceno}}</td>
+                                        <td v-show="showItem[3]">{{item.number}}</td>
+                                        <td v-show="showItem[4]">{{item.YZMC}}</td>
+                                        <td v-show="showItem[5]">{{item.FJQ}}</td>
+                                        <td v-show="showItem[6]">{{item.TFNYMBER}}</td>
+                                        <td v-show="showItem[7]">{{item.YJDWH}}</td>
+                                        <td v-show="showItem[8]">{{item.DJDWH}}</td>
+                                        <td v-show="showItem[9]">{{item.HTFS}}</td>
+                                        <td v-show="showItem[10]">{{item.HTH}}</td>
+                                        <td v-show="showItem[11]">{{item.ZXH}}</td>
                                         <td v-show="showItem[12]"></td>
-                                        <td v-show="showItem[13]"></td>
-                                        <td v-show="showItem[14]"></td>
-                                        <td v-show="showItem[15]"></td>
-                                        <td v-show="showItem[16]"></td>
-                                        <td v-show="showItem[17]"></td>
-                                        <td v-show="showItem[18]"></td>
-                                        <td v-show="showItem[19]"></td>
-                                        <td v-show="showItem[20]"></td>
-                                        <td v-show="showItem[21]"></td>
+                                        <td v-show="showItem[13]">{{item.P_N}}</td>
+                                        <td v-show="showItem[14]">{{item.N_ZB}}</td>
+                                        <td v-show="showItem[15]">{{item.E_ZB}}</td>
+                                        <td v-show="showItem[16]">{{item.GC}}</td>
+                                        <td v-show="showItem[17]">{{item.MHSX}}</td>
+                                        <td v-show="showItem[18]">{{item.CT}}</td>
+                                        <td v-show="showItem[19]">{{item.CLZ}}</td>
+                                        <td v-show="showItem[20]">{{item.HTZ}}</td>
+                                        <td v-show="showItem[21]">{{item.DATE}}</td>
                                     </tr>
                                     </tbody>
                                 </table>

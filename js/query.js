@@ -2,12 +2,14 @@
  * Created by terencehyz on 2017/5/6.
  */
 var serverIp="http://47.93.31.225/project/";
-new Vue({
-    el:"#queryVue",
+var vm = new Vue({
+    el:"#app2",
     data:{
         showLogin:localStorage.getItem("lLoginStatus"),
         showForm8:false,
-        showItem:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+        showItem:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+        itemIn8:{},
+        userId:localStorage.getItem("UserName")
 },
     filters:{
 
@@ -33,6 +35,11 @@ new Vue({
         },
         getData8:function () {
             this.showForm8=true;
+            var _this = this;
+            var url = serverIp + "lookuptable8.php" + "?callback=JSON_CALLBACK";
+            this.$http.get(url).then(function (res) {
+                _this.itemIn8=res.body;
+            })
         }
     }
 });

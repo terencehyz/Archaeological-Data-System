@@ -34,6 +34,7 @@ var vm = new Vue({
                     _this.loginMessage="";
                     localStorage.setItem("lUserInfo",res.body);
                     localStorage.setItem("lLoginStatus",true);
+                    localStorage.setItem("UserName",_this.id);
                     //路由跳转到query页面
                 }
                 else{
